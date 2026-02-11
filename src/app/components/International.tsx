@@ -1,7 +1,7 @@
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
 import { Globe, MapPin, Clock, Users } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const regions = [
   {
@@ -40,10 +40,9 @@ const stats = [
 export function International() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const navigate = useNavigate();
 
   return (
-    <section id="international" className="py-32 bg-white relative overflow-hidden">
+    <section id="international" className="py-32 bg-ice-warm-white relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, #0e7490 1px, transparent 0)', backgroundSize: '40px 40px' }} />
 
@@ -56,12 +55,12 @@ export function International() {
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h2 className="text-sm font-bold text-cyan-600 uppercase tracking-widest mb-3">Global Reach</h2>
-          <h3 className="text-3xl md:text-4xl font-light text-slate-900 mb-6">
+          <h2 className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Global Reach</h2>
+          <h3 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">
             Deployed worldwide. <br />
-            <span className="font-serif italic text-slate-400">Wherever the case demands.</span>
+            <span className="italic text-ice-text-tertiary">Wherever the case demands.</span>
           </h3>
-          <p className="text-slate-600 font-light leading-relaxed">
+          <p className="text-ice-text-secondary font-light leading-relaxed">
             ICE has executed cases on every inhabited continent. Our logistics network spans 40+ countries,
             with established relationships with funeral directors, consulates, customs brokers, and air cargo providers around the world.
           </p>
@@ -75,12 +74,12 @@ export function International() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
         >
           {stats.map((stat, i) => (
-            <div key={i} className="text-center p-6 bg-slate-50 rounded-2xl border border-slate-100 group hover:bg-cyan-50 hover:border-cyan-100 transition-colors duration-300">
-              <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-white border border-slate-100 flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300">
+            <div key={i} className="text-center p-6 bg-ice-warm-gray rounded-2xl border border-ice-border-subtle group hover:bg-ice-teal-muted hover:border-ice-teal-muted transition-colors duration-300">
+              <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-ice-warm-white border border-ice-border-subtle flex items-center justify-center text-ice-teal group-hover:bg-ice-teal group-hover:text-white transition-colors duration-300">
                 <stat.icon size={20} strokeWidth={1.5} />
               </div>
-              <div className="text-3xl font-light text-slate-900 mb-1">{stat.value}</div>
-              <div className="text-xs font-bold text-slate-500 uppercase tracking-widest">{stat.label}</div>
+              <div className="text-3xl font-light text-ice-text-primary mb-1">{stat.value}</div>
+              <div className="text-xs font-bold text-ice-text-secondary uppercase tracking-widest">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -95,21 +94,21 @@ export function International() {
               transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
               className={`p-8 rounded-2xl border transition-all duration-300 hover:shadow-lg ${
                 region.highlight
-                  ? 'bg-slate-900 text-white border-slate-800 hover:border-cyan-500'
-                  : 'bg-white border-slate-100 hover:border-slate-200'
+                  ? 'bg-ice-navy text-white border-ice-navy-light hover:border-ice-teal'
+                  : 'bg-ice-warm-white border-ice-border-subtle hover:border-ice-border-medium'
               }`}
             >
               <div className="flex items-start justify-between mb-4">
-                <h4 className={`text-xl font-medium ${region.highlight ? 'text-white' : 'text-slate-900'}`}>
+                <h4 className={`text-xl font-medium ${region.highlight ? 'text-white' : 'text-ice-text-primary'}`}>
                   {region.name}
                 </h4>
                 {region.highlight && (
-                  <span className="text-[10px] font-bold uppercase tracking-widest bg-cyan-500/20 text-cyan-400 px-3 py-1 rounded-full">
+                  <span className="text-[10px] font-bold uppercase tracking-widest bg-ice-gold/20 text-ice-gold px-3 py-1 rounded-full">
                     Primary
                   </span>
                 )}
               </div>
-              <p className={`text-sm leading-relaxed mb-6 ${region.highlight ? 'text-slate-400' : 'text-slate-500'}`}>
+              <p className={`text-sm leading-relaxed mb-6 ${region.highlight ? 'text-ice-text-tertiary' : 'text-ice-text-secondary'}`}>
                 {region.description}
               </p>
               <div className="flex flex-wrap gap-2">
@@ -118,8 +117,8 @@ export function International() {
                     key={country}
                     className={`text-xs px-3 py-1 rounded-full font-medium ${
                       region.highlight
-                        ? 'bg-white/10 text-slate-300'
-                        : 'bg-slate-50 text-slate-600 border border-slate-100'
+                        ? 'bg-white/10 text-white/60'
+                        : 'bg-ice-warm-gray text-ice-text-secondary border border-ice-border-subtle'
                     }`}
                   >
                     {country}
@@ -137,13 +136,13 @@ export function International() {
           transition={{ duration: 0.6, delay: 0.8 }}
           className="mt-16 text-center"
         >
-          <p className="text-slate-500 text-sm mb-4">Need logistics support for a specific country or route?</p>
-          <button
-            onClick={() => navigate('/logistics')}
-            className="px-8 py-3 bg-slate-900 text-white text-xs font-bold uppercase tracking-widest rounded-full hover:bg-cyan-600 transition-colors duration-200 shadow-sm"
+          <p className="text-ice-text-secondary text-sm mb-4">Need logistics support for a specific country or route?</p>
+          <Link
+            to="/logistics"
+            className="px-8 py-3 bg-ice-navy text-white text-xs font-bold uppercase tracking-widest rounded hover:bg-ice-teal transition-colors duration-200 shadow-sm inline-block"
           >
             View Logistics Details
-          </button>
+          </Link>
         </motion.div>
       </div>
     </section>

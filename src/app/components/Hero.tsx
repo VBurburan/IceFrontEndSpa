@@ -1,84 +1,123 @@
-import { motion } from 'motion/react';
-import { Phone, ArrowRight } from 'lucide-react';
+import { motion, useScroll, useTransform } from 'motion/react';
+import { Phone, ArrowRight, ChevronDown } from 'lucide-react';
+import { useRef } from 'react';
+import { InquiryDialog } from './InquiryDialog';
 
 export function Hero() {
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 600], [0, 200]);
+  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const textY = useTransform(scrollY, [0, 400], [0, -40]);
 
   return (
-    <div className="relative w-full min-h-[95vh] flex items-start overflow-hidden bg-slate-50">
+    <div ref={containerRef} className="relative w-full min-h-screen flex items-center overflow-hidden bg-ice-navy">
 
-      {/* Background Image - Full Coverage */}
-      <div className="absolute inset-0 z-0">
+      {/* Background Image with Parallax */}
+      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
         <img
           src="https://imgur.com/1PLU9xV.png"
           alt="ICE Medical Transport"
-          className="w-full h-full object-cover object-[75%_center] lg:object-center brightness-110 contrast-105 saturate-[1.1]"
+          className="w-full h-[120%] object-cover object-[75%_center] lg:object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/40 via-white/10 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-40" />
-      </div>
+        {/* Sophisticated overlay: dark from left for text legibility, fade to image on right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-ice-navy via-ice-navy/80 to-ice-navy/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ice-navy via-transparent to-ice-navy/30" />
+      </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-6 pt-28 lg:pt-48 flex justify-start">
-        <div className="max-w-2xl w-full">
+      <motion.div
+        className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-32 pb-24"
+        style={{ opacity: textOpacity, y: textY }}
+      >
+        <div className="max-w-2xl">
 
-          {/* Headline - enters first */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className="bg-white/75 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-xl border border-white/50 mb-48 lg:mb-64 inline-block w-full sm:w-auto">
-              <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light text-slate-900 tracking-tight leading-[1.1] m-0">
-                Global Excellence <br />
-                in <span className="font-semibold text-cyan-700">Biostasis Care</span>
-              </h1>
-            </div>
-          </motion.div>
-
-          {/* Tagline - enters second */}
+          {/* Label */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg sm:text-xl text-slate-900 font-normal leading-relaxed mb-10 max-w-xl border-l-4 border-cyan-500 pl-6 bg-white/75 backdrop-blur-md py-4 pr-4 rounded-r-lg shadow-lg"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="text-xs font-bold tracking-[0.3em] uppercase text-ice-teal-light mb-8"
           >
-            Providing ICU-level standby, stabilization, and transport services. We bridge the critical gap between legal death and future medicine with uncompromising clinical standards.
+            International Cryomedicine Experts
           </motion.p>
 
-          {/* Buttons - enter third, staggered */}
+          {/* Headline */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+            className="text-5xl sm:text-6xl lg:text-8xl font-extralight text-white tracking-tight leading-[1.05] mb-8"
+          >
+            Global Excellence
+            <br />
+            in <span className="text-ice-teal-light">Biostasis</span> Care
+          </motion.h1>
+
+          {/* Divider */}
+          <motion.div
+            initial={{ opacity: 0, scaleX: 0 }}
+            animate={{ opacity: 1, scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            className="h-px w-20 bg-ice-gold mb-8 origin-left"
+          />
+
+          {/* Tagline */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="text-lg sm:text-xl text-white/70 font-light leading-relaxed mb-12 max-w-xl"
+          >
+            ICU-level standby, stabilization, and transport services.
+            Bridging the critical gap between legal death and future medicine
+            with uncompromising clinical standards.
+          </motion.p>
+
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            <motion.button
+            <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              onClick={scrollToContact}
-              className="px-8 py-4 bg-slate-900 text-white font-bold text-sm uppercase tracking-widest rounded-md hover:bg-cyan-700 transition-colors duration-200 flex items-center justify-center gap-2 group shadow-xl border border-slate-700/50"
+              transition={{ duration: 0.5, delay: 0.65 }}
             >
-              Start Inquiry
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </motion.button>
+              <InquiryDialog>
+                <button className="px-8 py-4 bg-ice-teal text-white font-bold text-xs uppercase tracking-widest rounded hover:bg-ice-teal-light transition-colors duration-300 flex items-center justify-center gap-2 group w-full sm:w-auto">
+                  Start Inquiry
+                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+              </InquiryDialog>
+            </motion.div>
 
             <motion.a
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.75 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
               href="tel:844-468-5279"
-              className="px-8 py-4 bg-white/95 backdrop-blur-sm border border-slate-300 text-slate-900 font-bold text-sm uppercase tracking-widest rounded-md hover:bg-white hover:text-cyan-700 transition-colors duration-200 flex items-center justify-center gap-3 shadow-xl"
+              className="px-8 py-4 border border-white/20 text-white font-bold text-xs uppercase tracking-widest rounded hover:border-white/40 hover:bg-white/5 transition-all duration-300 flex items-center justify-center gap-3"
             >
-              <Phone size={16} />
-              24/7 Standby Activation
+              <Phone size={14} />
+              24/7 Standby Line
             </motion.a>
           </div>
-
         </div>
-      </div>
+      </motion.div>
 
+      {/* Scroll indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+      >
+        <span className="text-[10px] font-medium tracking-widest uppercase text-white/40">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+        >
+          <ChevronDown size={16} className="text-white/40" />
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

@@ -21,9 +21,9 @@ export function BackToTop() {
           transition={{ duration: 0.2 }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           aria-label="Back to top"
-          className="fixed bottom-8 right-8 z-40 w-12 h-12 rounded-full bg-slate-900 text-white shadow-lg hover:bg-cyan-600 transition-colors duration-200 flex items-center justify-center border border-slate-700/50 hover:shadow-cyan-500/25 hover:shadow-xl"
+          className="fixed bottom-20 md:bottom-8 right-6 md:right-8 z-40 w-11 h-11 rounded-lg bg-ice-navy text-white shadow-lg hover:bg-ice-teal transition-colors duration-200 flex items-center justify-center border border-white/10 backdrop-blur-sm"
         >
-          <ArrowUp size={20} />
+          <ArrowUp size={18} />
         </motion.button>
       )}
     </AnimatePresence>
