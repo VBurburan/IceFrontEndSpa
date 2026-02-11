@@ -11,6 +11,7 @@ import { Contact } from "@/app/components/Contact";
 import { Footer } from "@/app/components/Footer";
 import { BackToTop } from "@/app/components/BackToTop";
 import { EmergencyCTA } from "@/app/components/EmergencyCTA";
+import { ReadingProgress } from "@/app/components/ReadingProgress";
 import { PageLoader } from "@/app/components/PageLoader";
 
 const LogisticsPage = lazy(() => import('@/app/pages/LogisticsPage'));
@@ -78,6 +79,7 @@ export default function App() {
     <BrowserRouter>
       <div className="min-h-screen bg-ice-warm-white font-sans text-ice-text-primary">
         <a href="#main-content" className="skip-to-content">Skip to main content</a>
+        <ReadingProgress />
         <ScrollToTop />
         <Navbar />
 

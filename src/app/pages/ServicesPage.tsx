@@ -105,7 +105,7 @@ export function ServicesPage() {
           >
             <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal-light mb-6">Services</p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extralight tracking-tight leading-[1.1] mb-8">
-              White-glove care at<br />
+              Clinical precision at<br />
               <span className="text-ice-teal-light">every critical moment</span>
             </h1>
             <p className="text-lg font-light text-white/70 max-w-2xl leading-relaxed">

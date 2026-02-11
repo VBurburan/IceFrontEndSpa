@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Phone, Mail, MapPin, Clock, ArrowRight, AlertCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ArrowRight } from 'lucide-react';
 import { AnimatedSection } from '@/app/components/AnimatedSection';
 import { InquiryForm } from '@/app/components/InquiryForm';
 import { Skeleton } from '@/app/components/ui/skeleton';
@@ -49,89 +49,20 @@ export function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Methods */}
+      {/* Intake Form — Primary */}
       <section className="py-24 lg:py-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
-            {/* Emergency */}
-            <AnimatedSection>
-              <div className="relative bg-white p-8 rounded-xl border-2 border-red-100 h-full premium-card">
-                <div className="absolute top-4 right-4">
-                  <span className="relative flex h-3 w-3">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500" />
-                  </span>
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center mb-6">
-                  <AlertCircle size={22} className="text-red-600" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-medium text-ice-text-primary mb-2">Emergency Standby</h3>
-                <p className="text-sm text-ice-text-secondary font-light leading-relaxed mb-6">
-                  For active cases requiring immediate deployment. Our 24/7 line connects you
-                  directly with a deployment coordinator.
-                </p>
-                <a
-                  href="tel:844-468-5279"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-red-600 text-white text-xs font-bold uppercase tracking-widest rounded hover:bg-red-700 transition-colors w-full justify-center"
-                >
-                  <Phone size={14} />
-                  844-INTL-CRYO
-                </a>
-              </div>
-            </AnimatedSection>
+          <div className="grid lg:grid-cols-5 gap-16 lg:gap-20 items-start">
 
-            {/* General Inquiry */}
-            <AnimatedSection delay={0.1}>
-              <div className="bg-white p-8 rounded-xl border border-ice-border-subtle h-full premium-card">
-                <div className="w-12 h-12 rounded-xl bg-ice-teal-muted flex items-center justify-center mb-6">
-                  <Mail size={22} className="text-ice-teal" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-medium text-ice-text-primary mb-2">General Inquiry</h3>
-                <p className="text-sm text-ice-text-secondary font-light leading-relaxed mb-6">
-                  Planning ahead? Use our secure intake form below to share your situation.
-                  A case coordinator will respond within 2 hours.
-                </p>
-                <a
-                  href="#inquiry-form"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-ice-teal hover:text-ice-navy transition-colors"
-                >
-                  Go to intake form
-                  <ArrowRight size={14} />
-                </a>
-              </div>
-            </AnimatedSection>
-
-            {/* Email Direct */}
-            <AnimatedSection delay={0.2}>
-              <div className="bg-white p-8 rounded-xl border border-ice-border-subtle h-full premium-card">
-                <div className="w-12 h-12 rounded-xl bg-ice-gold-light flex items-center justify-center mb-6">
-                  <Mail size={22} className="text-ice-gold" strokeWidth={1.5} />
-                </div>
-                <h3 className="text-lg font-medium text-ice-text-primary mb-2">Email Direct</h3>
-                <p className="text-sm text-ice-text-secondary font-light leading-relaxed mb-6">
-                  For non-urgent questions, partnership inquiries, or general information about
-                  our services.
-                </p>
-                <a
-                  href="mailto:info@cryomedics.org"
-                  className="inline-flex items-center gap-2 px-6 py-3 border border-ice-border-medium text-ice-text-secondary text-xs font-bold uppercase tracking-widest rounded hover:border-ice-navy hover:text-ice-text-primary transition-colors w-full justify-center"
-                >
-                  <Mail size={14} />
-                  info@cryomedics.org
-                </a>
-              </div>
-            </AnimatedSection>
-          </div>
-
-          {/* Intake Form */}
-          <AnimatedSection id="inquiry-form">
-            <div className="max-w-3xl mx-auto">
-              <div className="text-center mb-10">
-                <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal mb-4">Secure Form</p>
+            {/* Form Column */}
+            <AnimatedSection className="lg:col-span-3 order-2 lg:order-1" id="inquiry-form">
+              <div className="mb-8">
+                <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal mb-4">Secure Intake Form</p>
                 <h2 className="text-3xl lg:text-4xl font-extralight text-ice-text-primary tracking-tight mb-4">
-                  Secure intake form
+                  Tell us about your case
                 </h2>
-                <p className="text-sm text-ice-text-tertiary">
+                <p className="text-sm text-ice-text-secondary font-light leading-relaxed max-w-lg">
+                  This form handles both urgent and non-urgent inquiries.
                   All information is kept strictly confidential and encrypted in transit.
                 </p>
               </div>
@@ -154,14 +85,77 @@ export function ContactPage() {
                 </div>
               </div>
 
-              <p className="text-center text-xs text-ice-text-tertiary mt-4">
+              <p className="text-xs text-ice-text-tertiary mt-4">
                 Having trouble with the form?{' '}
                 <a href="mailto:info@cryomedics.org" className="text-ice-teal hover:underline">
                   Email us directly
                 </a>
               </p>
-            </div>
-          </AnimatedSection>
+            </AnimatedSection>
+
+            {/* Sidebar — Contact Info */}
+            <AnimatedSection delay={0.15} className="lg:col-span-2 order-1 lg:order-2">
+              <div className="lg:sticky lg:top-28 space-y-8">
+
+                <div>
+                  <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal mb-4">Other Ways to Reach Us</p>
+                  <p className="text-sm text-ice-text-secondary font-light leading-relaxed">
+                    Our team monitors both this form and direct lines around the clock.
+                    Use whichever method is most convenient.
+                  </p>
+                </div>
+
+                <a
+                  href="tel:844-468-5279"
+                  className="flex items-start gap-4 p-5 rounded-xl border border-ice-border-subtle hover:border-ice-teal/30 bg-white transition-all duration-300 group premium-card"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-ice-teal-muted flex items-center justify-center shrink-0">
+                    <Phone size={20} className="text-ice-teal" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-ice-text-primary group-hover:text-ice-teal transition-colors">
+                      844-INTL-CRYO
+                    </p>
+                    <p className="text-xs text-ice-text-tertiary mt-0.5">Available 24/7/365</p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:info@cryomedics.org"
+                  className="flex items-start gap-4 p-5 rounded-xl border border-ice-border-subtle hover:border-ice-teal/30 bg-white transition-all duration-300 group premium-card"
+                >
+                  <div className="w-11 h-11 rounded-lg bg-ice-gold-light flex items-center justify-center shrink-0">
+                    <Mail size={20} className="text-ice-gold" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-ice-text-primary group-hover:text-ice-teal transition-colors">
+                      info@cryomedics.org
+                    </p>
+                    <p className="text-xs text-ice-text-tertiary mt-0.5">General inquiries &amp; partnerships</p>
+                  </div>
+                </a>
+
+                <div className="p-5 rounded-xl bg-ice-warm-gray border border-ice-border-subtle">
+                  <div className="flex items-start gap-4 mb-4">
+                    <MapPin size={18} className="text-ice-text-tertiary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-ice-text-primary">Scottsdale, Arizona</p>
+                      <p className="text-xs text-ice-text-tertiary mt-0.5">Strategic location for rapid nationwide deployment</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <Clock size={18} className="text-ice-text-tertiary mt-0.5 flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-medium text-ice-text-primary">Emergency: 24/7/365</p>
+                      <p className="text-xs text-ice-text-tertiary mt-0.5">General: Mon-Fri 8am-6pm MST</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </AnimatedSection>
+
+          </div>
         </div>
       </section>
 
@@ -187,73 +181,6 @@ export function ContactPage() {
                 </div>
               </AnimatedSection>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Office Info */}
-      <section className="py-24 lg:py-32">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12">
-            <AnimatedSection>
-              <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal mb-4">Headquarters</p>
-              <h3 className="text-2xl font-extralight text-ice-text-primary mb-6">Scottsdale, Arizona</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <MapPin size={18} className="text-ice-text-tertiary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-sm text-ice-text-secondary font-light">
-                      Scottsdale, AZ, United States
-                    </p>
-                    <p className="text-xs text-ice-text-tertiary mt-1">
-                      Strategic location for rapid nationwide deployment
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <Clock size={18} className="text-ice-text-tertiary mt-0.5 flex-shrink-0" />
-                  <div>
-                    <p className="text-sm text-ice-text-secondary font-light">
-                      Emergency line: 24/7/365
-                    </p>
-                    <p className="text-xs text-ice-text-tertiary mt-1">
-                      General inquiries: Mon-Fri 8am-6pm MST
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </AnimatedSection>
-
-            <AnimatedSection delay={0.15}>
-              <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal mb-4">Direct Lines</p>
-              <h3 className="text-2xl font-extralight text-ice-text-primary mb-6">Reach us anytime</h3>
-              <div className="space-y-4">
-                <a
-                  href="tel:844-468-5279"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-ice-border-subtle hover:border-ice-teal/30 transition-colors group"
-                >
-                  <Phone size={18} className="text-ice-teal" />
-                  <div>
-                    <p className="text-sm font-medium text-ice-text-primary group-hover:text-ice-teal transition-colors">
-                      844-INTL-CRYO
-                    </p>
-                    <p className="text-xs text-ice-text-tertiary">24/7 Emergency & General</p>
-                  </div>
-                </a>
-                <a
-                  href="mailto:info@cryomedics.org"
-                  className="flex items-center gap-4 p-4 rounded-lg border border-ice-border-subtle hover:border-ice-teal/30 transition-colors group"
-                >
-                  <Mail size={18} className="text-ice-teal" />
-                  <div>
-                    <p className="text-sm font-medium text-ice-text-primary group-hover:text-ice-teal transition-colors">
-                      info@cryomedics.org
-                    </p>
-                    <p className="text-xs text-ice-text-tertiary">General Inquiries</p>
-                  </div>
-                </a>
-              </div>
-            </AnimatedSection>
           </div>
         </div>
       </section>

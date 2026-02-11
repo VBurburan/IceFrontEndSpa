@@ -45,8 +45,13 @@ export function WhatWeDo() {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
-          {/* Connecting line (desktop only) */}
-          <div className="hidden md:block absolute top-7 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-transparent via-ice-border-subtle to-transparent" />
+          {/* Connecting line (desktop only) — draws itself on scroll */}
+          <motion.div
+            initial={{ scaleX: 0 }}
+            animate={isInView ? { scaleX: 1 } : {}}
+            transition={{ duration: 1.2, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="hidden md:block absolute top-7 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-transparent via-ice-teal/30 to-transparent origin-left"
+          />
 
           {capabilities.map((cap, i) => (
             <motion.div
