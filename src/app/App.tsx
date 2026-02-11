@@ -11,6 +11,7 @@ import { Footer } from "@/app/components/Footer";
 import { LogisticsPage } from "@/app/pages/LogisticsPage";
 import { LegalPage } from "@/app/pages/LegalPage";
 import { NotFoundPage } from "@/app/pages/NotFoundPage";
+import { BackToTop } from "@/app/components/BackToTop";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -86,6 +87,7 @@ export default function App() {
         </Routes>
 
         <Footer />
+        <BackToTop />
       </div>
     </BrowserRouter>
   );

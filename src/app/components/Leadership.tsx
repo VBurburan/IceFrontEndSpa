@@ -1,6 +1,12 @@
-import { Quote } from 'lucide-react';
+import { Quote, Award, Globe, Stethoscope } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+
+const credentials = [
+  { icon: Stethoscope, label: '10+ Years at Alcor' },
+  { icon: Globe, label: 'Most Intl. Cases in History' },
+  { icon: Award, label: 'ICU-Level Field Protocols' },
+];
 
 export function Leadership() {
   const ref = useRef(null);
@@ -17,13 +23,13 @@ export function Leadership() {
             transition={{ duration: 0.7 }}
             className="w-full lg:w-1/2"
           >
-             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+             <div className="relative rounded-2xl overflow-hidden shadow-2xl group">
                <img
                  src="https://i.imgur.com/VXbNScc.jpg"
                  alt="Aaron Drake, Senior Medical Response Consultant at ICE"
-                 className="w-full h-auto object-cover"
+                 className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700"
                />
-               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/90 to-transparent p-8">
+               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-900/90 via-slate-900/50 to-transparent p-8">
                   <h3 className="text-white text-2xl font-light">Aaron Drake</h3>
                   <p className="text-cyan-400 text-sm font-bold uppercase tracking-widest mt-1">Senior Medical Response Consultant</p>
                </div>
@@ -42,7 +48,7 @@ export function Leadership() {
                <span className="font-serif italic text-slate-400">human cryopreservation.</span>
              </h3>
 
-             <div className="space-y-6 text-slate-600 font-light leading-relaxed mb-10 text-lg">
+             <div className="space-y-6 text-slate-600 font-light leading-relaxed mb-8 text-lg">
                <p>
                  Aaron Drake served as the Medical Response Director for the Alcor Life Extension Foundation for over a decade, personally overseeing more international cases than any other specialist in history.
                </p>
@@ -51,12 +57,33 @@ export function Leadership() {
                </p>
              </div>
 
-             <div className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm relative">
-                <Quote className="text-cyan-100 absolute top-4 left-4 w-10 h-10 -z-10" />
-                <p className="text-slate-700 italic font-medium relative z-10">
+             {/* Credential Badges */}
+             <motion.div
+               initial={{ opacity: 0, y: 15 }}
+               animate={isInView ? { opacity: 1, y: 0 } : {}}
+               transition={{ duration: 0.5, delay: 0.4 }}
+               className="flex flex-wrap gap-3 mb-8"
+             >
+               {credentials.map((cred) => (
+                 <div key={cred.label} className="flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-slate-100 shadow-sm text-sm text-slate-700">
+                   <cred.icon size={14} className="text-cyan-600" />
+                   <span className="font-medium">{cred.label}</span>
+                 </div>
+               ))}
+             </motion.div>
+
+             <motion.div
+               initial={{ opacity: 0, y: 15 }}
+               animate={isInView ? { opacity: 1, y: 0 } : {}}
+               transition={{ duration: 0.5, delay: 0.55 }}
+               className="bg-white p-8 rounded-xl border border-slate-100 shadow-sm relative overflow-hidden"
+             >
+                <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-cyan-500 to-cyan-300" />
+                <Quote className="text-cyan-100 absolute top-4 right-4 w-8 h-8" />
+                <p className="text-slate-700 italic font-medium relative z-10 pl-4">
                   "Our mission is to maintain biological viability through surgical precision and rapid cooling. We don't just transport; we preserve potential."
                 </p>
-             </div>
+             </motion.div>
           </motion.div>
 
         </div>

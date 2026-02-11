@@ -44,17 +44,25 @@ export function WhatWeDo() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 relative">
+          {/* Connecting line (desktop only) */}
+          <div className="hidden md:block absolute top-7 left-[16.67%] right-[16.67%] h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+
           {capabilities.map((cap, i) => (
             <motion.div
               key={cap.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
-              className="group"
+              className="group relative"
             >
-              <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-cyan-600 mb-6 group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300 shadow-sm">
-                <cap.icon size={28} strokeWidth={1.5} />
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-cyan-600 group-hover:bg-cyan-500 group-hover:text-white transition-colors duration-300 shadow-sm relative z-10">
+                  <cap.icon size={28} strokeWidth={1.5} />
+                </div>
+                <span className="text-5xl font-extralight text-slate-100 group-hover:text-cyan-100 transition-colors duration-300 select-none">
+                  0{i + 1}
+                </span>
               </div>
               <h4 className="text-xl font-medium text-slate-900 mb-3">{cap.title}</h4>
               <p className="text-sm text-slate-500 leading-relaxed font-light">
