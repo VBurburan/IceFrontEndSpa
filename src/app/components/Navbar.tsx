@@ -52,7 +52,7 @@ export function Navbar() {
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 py-3 shadow-sm transition-all duration-300">
+      <nav aria-label="Main navigation" className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200 py-3 shadow-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             
@@ -99,11 +99,13 @@ export function Navbar() {
 
             {/* Mobile Toggle */}
             <div className="md:hidden flex items-center gap-4">
-              <a href="tel:844-468-5279" className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 transition-colors">
+              <a href="tel:844-468-5279" aria-label="Call 24/7 standby line" className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 text-slate-600 border border-slate-200 hover:bg-slate-100 transition-colors">
                 <Phone size={18} />
               </a>
-              <button 
-                onClick={() => setIsOpen(!isOpen)} 
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={isOpen}
                 className="p-2 text-slate-900 hover:bg-slate-50 rounded-lg transition-colors"
               >
                 {isOpen ? <X size={28} /> : <Menu size={28} />}
