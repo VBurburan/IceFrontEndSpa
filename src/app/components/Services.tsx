@@ -79,9 +79,9 @@ export function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
               className={`
-                relative bg-white rounded-2xl p-8 flex flex-col h-full transition-all duration-300
-                ${tier.recommended 
-                  ? 'shadow-2xl shadow-ice-navy/10 ring-1 ring-ice-teal transform md:-translate-y-4' 
+                relative bg-white rounded-2xl p-8 flex flex-col h-full transition-all duration-300 premium-card
+                ${tier.recommended
+                  ? 'shadow-2xl shadow-ice-navy/10 ring-1 ring-ice-teal transform md:-translate-y-4'
                   : 'shadow-lg shadow-ice-border-subtle border border-ice-border-subtle hover:shadow-xl'
                 }
               `}

@@ -27,6 +27,7 @@ export function Leadership() {
                <img
                  src="https://i.imgur.com/VXbNScc.jpg"
                  alt="Aaron Drake, Senior Medical Response Consultant at ICE"
+                 loading="lazy"
                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700"
                />
                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-ice-navy/90 via-ice-navy/50 to-transparent p-8">

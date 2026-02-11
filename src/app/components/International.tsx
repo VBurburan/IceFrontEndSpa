@@ -74,7 +74,7 @@ export function International() {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20"
         >
           {stats.map((stat, i) => (
-            <div key={i} className="text-center p-6 bg-ice-warm-gray rounded-2xl border border-ice-border-subtle group hover:bg-ice-teal-muted hover:border-ice-teal-muted transition-colors duration-300">
+            <div key={i} className="text-center p-6 bg-ice-warm-gray rounded-2xl border border-ice-border-subtle group hover:bg-ice-teal-muted hover:border-ice-teal-muted transition-all duration-300 premium-card">
               <div className="w-10 h-10 mx-auto mb-3 rounded-xl bg-ice-warm-white border border-ice-border-subtle flex items-center justify-center text-ice-teal group-hover:bg-ice-teal group-hover:text-white transition-colors duration-300">
                 <stat.icon size={20} strokeWidth={1.5} />
               </div>

@@ -54,7 +54,7 @@ export function WhatWeDo() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + i * 0.15 }}
-              className="group relative"
+              className="group relative premium-card"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="w-14 h-14 rounded-xl bg-ice-warm-gray border border-ice-border-subtle flex items-center justify-center text-ice-teal group-hover:bg-ice-teal group-hover:text-white transition-colors duration-300 relative z-10">
