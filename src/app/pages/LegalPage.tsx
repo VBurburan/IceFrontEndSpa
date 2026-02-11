@@ -84,25 +84,25 @@ export function LegalPage() {
 
   if (!content) {
     return (
-      <div className="min-h-screen flex items-center justify-center pt-24">
-        <p className="text-slate-500">Page not found.</p>
+      <div className="min-h-screen flex items-center justify-center pt-24 bg-ice-warm-white">
+        <p className="text-ice-text-tertiary">Page not found.</p>
       </div>
     );
   }
 
   return (
-    <div className="pt-24 pb-20 bg-white min-h-screen">
-      <section className="bg-slate-50 py-16 border-b border-slate-200">
+    <div className="pt-24 pb-20 bg-ice-warm-white min-h-screen">
+      <section className="bg-ice-warm-gray py-16 border-b border-ice-border-subtle">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl md:text-4xl font-light text-slate-900 mb-3 tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-extralight text-ice-text-primary mb-3 tracking-tight">
               {content.title}
             </h1>
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-ice-text-tertiary">
               Last updated: {content.lastUpdated}
             </p>
           </motion.div>
@@ -119,8 +119,8 @@ export function LegalPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 + i * 0.08 }}
               >
-                <h2 className="text-lg font-semibold text-slate-900 mb-3">{section.heading}</h2>
-                <p className="text-slate-600 font-light leading-relaxed">{section.body}</p>
+                <h2 className="text-lg font-semibold text-ice-text-primary mb-3">{section.heading}</h2>
+                <p className="text-ice-text-secondary font-light leading-relaxed">{section.body}</p>
               </motion.div>
             ))}
           </div>
@@ -129,3 +129,5 @@ export function LegalPage() {
     </div>
   );
 }
+
+export default LegalPage;

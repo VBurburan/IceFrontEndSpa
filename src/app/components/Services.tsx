@@ -1,6 +1,7 @@
 import { Check, ShieldCheck } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 export function Services() {
   const ref = useRef(null);
@@ -54,7 +55,7 @@ export function Services() {
   ];
 
   return (
-    <section id="services" className="py-32 bg-slate-50 relative">
+    <section id="services" className="py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -62,9 +63,9 @@ export function Services() {
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h2 className="text-sm font-bold text-cyan-600 uppercase tracking-widest mb-3">Transparent Pricing</h2>
-          <h3 className="text-3xl md:text-4xl font-light text-slate-900 mb-6">Comprehensive Service Protocols</h3>
-          <p className="text-slate-600 font-light leading-relaxed">
+          <h2 className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Transparent Pricing</h2>
+          <h3 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">Comprehensive Service Protocols</h3>
+          <p className="text-ice-text-secondary font-light leading-relaxed">
             We offer tiered levels of support designed to meet specific clinical and logistical needs.
             All protocols are executed in strict partnership with receiving organizations.
           </p>
@@ -78,34 +79,34 @@ export function Services() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
               className={`
-                relative bg-white rounded-2xl p-8 flex flex-col h-full transition-all duration-300
-                ${tier.recommended 
-                  ? 'shadow-2xl shadow-cyan-900/10 ring-1 ring-cyan-500 transform md:-translate-y-4' 
-                  : 'shadow-lg shadow-slate-200 border border-slate-100 hover:shadow-xl'
+                relative bg-white rounded-2xl p-8 flex flex-col h-full transition-all duration-300 premium-card
+                ${tier.recommended
+                  ? 'shadow-2xl shadow-ice-navy/10 ring-1 ring-ice-teal transform md:-translate-y-4'
+                  : 'shadow-lg shadow-ice-border-subtle border border-ice-border-subtle hover:shadow-xl'
                 }
               `}
             >
               {tier.recommended && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-cyan-500 text-white text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-ice-navy text-ice-gold text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
                   Most Common
                 </div>
               )}
 
-              <div className="mb-8 border-b border-slate-100 pb-8">
-                <h4 className="text-lg font-semibold text-slate-900 mb-2">{tier.name}</h4>
+              <div className="mb-8 border-b border-ice-border-subtle pb-8">
+                <h4 className="text-lg font-semibold text-ice-text-primary mb-2">{tier.name}</h4>
                 <div className="flex items-baseline gap-1 mb-4">
-                  <span className="text-4xl font-light text-slate-900">{tier.price}</span>
+                  <span className="text-4xl font-light text-ice-text-primary">{tier.price}</span>
                   <span className="text-sm text-slate-400 font-light">/ case</span>
                 </div>
-                <p className="text-sm text-slate-500 leading-relaxed">
+                <p className="text-sm text-ice-text-secondary leading-relaxed">
                   {tier.description}
                 </p>
               </div>
               
               <ul className="space-y-4 mb-8 flex-grow">
                 {tier.features.map((feature, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-slate-700">
-                    <div className="mt-0.5 p-0.5 rounded-full bg-cyan-50 text-cyan-600 shrink-0">
+                  <li key={i} className="flex items-start gap-3 text-sm text-ice-text-primary">
+                    <div className="mt-0.5 p-0.5 rounded-full bg-ice-teal-muted text-ice-teal shrink-0">
                       <Check size={12} strokeWidth={3} />
                     </div>
                     <span>{feature}</span>
@@ -116,10 +117,10 @@ export function Services() {
               <button 
                 onClick={scrollToContact}
                 className={`
-                  w-full py-4 text-xs font-bold uppercase tracking-widest rounded-xl transition-all duration-300
+                  w-full py-4 text-xs font-bold uppercase tracking-widest rounded transition-all duration-300
                   ${tier.recommended 
-                    ? 'bg-slate-900 text-white hover:bg-cyan-600 shadow-lg hover:shadow-cyan-500/25' 
-                    : 'bg-slate-50 text-slate-900 hover:bg-slate-100'
+                    ? 'bg-ice-navy text-white hover:bg-ice-teal shadow-lg hover:shadow-ice-teal/25' 
+                    : 'bg-slate-50 text-ice-text-primary hover:bg-ice-border-subtle'
                   }
                 `}
               >
@@ -129,22 +130,28 @@ export function Services() {
           ))}
         </div>
 
-        <div className="mt-16 bg-white rounded-2xl p-8 border border-slate-100 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="mt-16 bg-white rounded-2xl p-8 border border-ice-border-subtle shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
            <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600">
+              <div className="w-12 h-12 rounded-full bg-ice-teal-muted flex items-center justify-center text-ice-teal">
                  <ShieldCheck size={24} />
               </div>
               <div>
-                 <h4 className="font-bold text-slate-900 text-sm">Additional Considerations</h4>
-                 <p className="text-xs text-slate-500 mt-1">International fees apply for cases outside the continental US.</p>
+                 <h4 className="font-bold text-ice-text-primary text-sm">Additional Considerations</h4>
+                 <p className="text-xs text-ice-text-secondary mt-1">International fees apply for cases outside the continental US.</p>
               </div>
            </div>
            <div className="text-right">
               <p className="text-xs text-slate-400">
-                Canada Surcharge: <span className="font-semibold text-slate-700">$12,500</span> • 
-                Global Surcharge: <span className="font-semibold text-slate-700">$25,000+</span>
+                Canada Surcharge: <span className="font-semibold text-ice-text-primary">$12,500</span> • 
+                Global Surcharge: <span className="font-semibold text-ice-text-primary">$25,000+</span>
               </p>
            </div>
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link to="/services" className="text-sm font-medium text-ice-teal hover:text-ice-navy transition-colors duration-200">
+            View detailed service descriptions &rarr;
+          </Link>
         </div>
 
       </div>
