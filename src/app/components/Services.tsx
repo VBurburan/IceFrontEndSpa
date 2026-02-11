@@ -1,6 +1,11 @@
 import { Check, ShieldCheck } from 'lucide-react';
+import { motion, useInView } from 'motion/react';
+import { useRef } from 'react';
 
 export function Services() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -50,20 +55,28 @@ export function Services() {
 
   return (
     <section id="services" className="py-32 bg-slate-50 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-20"
+        >
           <h2 className="text-sm font-bold text-cyan-600 uppercase tracking-widest mb-3">Transparent Pricing</h2>
           <h3 className="text-3xl md:text-4xl font-light text-slate-900 mb-6">Comprehensive Service Protocols</h3>
           <p className="text-slate-600 font-light leading-relaxed">
-            We offer tiered levels of support designed to meet specific clinical and logistical needs. 
+            We offer tiered levels of support designed to meet specific clinical and logistical needs.
             All protocols are executed in strict partnership with receiving organizations.
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {tiers.map((tier, index) => (
-            <div 
-              key={index} 
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
               className={`
                 relative bg-white rounded-2xl p-8 flex flex-col h-full transition-all duration-300
                 ${tier.recommended 
@@ -112,7 +125,7 @@ export function Services() {
               >
                 Inquire Now
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
 
