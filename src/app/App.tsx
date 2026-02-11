@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, lazy, Suspense } from 'react';
 import { Navbar } from "@/app/components/Navbar";
 import { Hero } from "@/app/components/Hero";
 import { WhatWeDo } from "@/app/components/WhatWeDo";
@@ -8,10 +8,17 @@ import { Leadership } from "@/app/components/Leadership";
 import { Services } from "@/app/components/Services";
 import { Contact } from "@/app/components/Contact";
 import { Footer } from "@/app/components/Footer";
-import { LogisticsPage } from "@/app/pages/LogisticsPage";
-import { LegalPage } from "@/app/pages/LegalPage";
-import { NotFoundPage } from "@/app/pages/NotFoundPage";
 import { BackToTop } from "@/app/components/BackToTop";
+import { EmergencyCTA } from "@/app/components/EmergencyCTA";
+import { PageLoader } from "@/app/components/PageLoader";
+
+const LogisticsPage = lazy(() => import('@/app/pages/LogisticsPage'));
+const LegalPage = lazy(() => import('@/app/pages/LegalPage'));
+const NotFoundPage = lazy(() => import('@/app/pages/NotFoundPage'));
+const AboutPage = lazy(() => import('@/app/pages/AboutPage'));
+const ServicesPage = lazy(() => import('@/app/pages/ServicesPage'));
+const ProcessPage = lazy(() => import('@/app/pages/ProcessPage'));
+const ContactPage = lazy(() => import('@/app/pages/ContactPage'));
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,55 +46,29 @@ function HomePage() {
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-cyan-100 selection:text-cyan-900">
-        <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@200;300;400;500;600&display=swap');
-          
-          :root {
-            --font-sans: 'Inter', sans-serif;
-            --font-display: 'Outfit', sans-serif;
-          }
-
-          html { 
-            scroll-behavior: smooth; 
-          }
-
-          body {
-            font-family: var(--font-sans);
-          }
-
-          h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-display);
-          }
-
-          /* Custom Scrollbar */
-          ::-webkit-scrollbar {
-            width: 10px;
-          }
-          ::-webkit-scrollbar-track {
-            background: #f1f5f9;
-          }
-          ::-webkit-scrollbar-thumb {
-            background: #cbd5e1;
-            border-radius: 5px;
-          }
-          ::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8;
-          }
-        `}</style>
-        
+      <div className="min-h-screen bg-ice-warm-white font-sans text-ice-text-primary">
+        <a href="#main-content" className="skip-to-content">Skip to main content</a>
         <ScrollToTop />
         <Navbar />
-        
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/logistics" element={<LogisticsPage />} />
-          <Route path="/legal/:slug" element={<LegalPage />} />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+
+        <main id="main-content">
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/logistics" element={<LogisticsPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/process" element={<ProcessPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/legal/:slug" element={<LegalPage />} />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </Suspense>
+        </main>
 
         <Footer />
         <BackToTop />
+        <EmergencyCTA />
       </div>
     </BrowserRouter>
   );

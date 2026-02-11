@@ -39,6 +39,22 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* ICE Premium Design System */
+  --ice-navy: oklch(0.18 0.02 260);
+  --ice-navy-light: oklch(0.25 0.02 260);
+  --ice-teal: oklch(0.55 0.12 200);
+  --ice-teal-light: oklch(0.70 0.08 200);
+  --ice-teal-muted: oklch(0.92 0.02 200);
+  --ice-gold: oklch(0.82 0.04 80);
+  --ice-gold-light: oklch(0.92 0.02 80);
+  --ice-warm-white: oklch(0.98 0.003 80);
+  --ice-warm-gray: oklch(0.96 0.004 260);
+  --ice-text-primary: oklch(0.15 0.01 260);
+  --ice-text-secondary: oklch(0.45 0.01 260);
+  --ice-text-tertiary: oklch(0.60 0.005 260);
+  --ice-border-subtle: oklch(0.92 0.005 260);
+  --ice-border-medium: oklch(0.85 0.008 260);
 }
 
 .dark {
@@ -117,6 +133,22 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* ICE Premium Palette as Tailwind utilities */
+  --color-ice-navy: var(--ice-navy);
+  --color-ice-navy-light: var(--ice-navy-light);
+  --color-ice-teal: var(--ice-teal);
+  --color-ice-teal-light: var(--ice-teal-light);
+  --color-ice-teal-muted: var(--ice-teal-muted);
+  --color-ice-gold: var(--ice-gold);
+  --color-ice-gold-light: var(--ice-gold-light);
+  --color-ice-warm-white: var(--ice-warm-white);
+  --color-ice-warm-gray: var(--ice-warm-gray);
+  --color-ice-text-primary: var(--ice-text-primary);
+  --color-ice-text-secondary: var(--ice-text-secondary);
+  --color-ice-text-tertiary: var(--ice-text-tertiary);
+  --color-ice-border-subtle: var(--ice-border-subtle);
+  --color-ice-border-medium: var(--ice-border-medium);
 }
 
 @layer base {

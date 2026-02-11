@@ -289,3 +289,5 @@ export function LogisticsPage() {
     </div>
   );
 }
+
+export default LogisticsPage;
