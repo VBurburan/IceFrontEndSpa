@@ -39,14 +39,14 @@ export function Hero() {
             
             {/* Glass Container for Headline */}
             {/* Increased margin bottom from mb-32 to mb-64 for much more separation */}
-            <div className="bg-white/75 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-xl border border-white/50 mb-48 lg:mb-64 inline-block w-full sm:w-auto">
+            <div className="bg-white/75 backdrop-blur-md rounded-2xl p-6 sm:p-8 shadow-xl border border-white/50 mb-48 lg:mb-52 inline-block w-full sm:w-auto">
               <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light text-slate-900 tracking-tight leading-[1.1] m-0">
                 Global Excellence <br />
                 in <span className="font-semibold text-cyan-700">Biostasis Care</span>
               </h1>
             </div>
             
-            <p className="text-lg sm:text-xl text-slate-900 font-normal leading-relaxed mb-10 max-w-xl border-l-4 border-cyan-500 pl-6 bg-white/75 backdrop-blur-md py-4 pr-4 rounded-r-lg shadow-lg">
+            <p className="text-lg sm:text-xl text-slate-900 font-normal leading-relaxed mb-10 lg:mb-8 max-w-xl border-l-4 border-cyan-500 pl-6 bg-white/75 backdrop-blur-md py-4 pr-4 rounded-r-lg shadow-lg">
               Providing ICU-level standby, stabilization, and transport services. We bridge the critical gap between legal death and future medicine with uncompromising clinical standards.
             </p>
 
