@@ -1,23 +1,7 @@
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
 import { Plane, FileCheck, ThermometerSnowflake, Globe, Clock, ShieldCheck, FileText, Users, MapPin, AlertTriangle } from 'lucide-react';
+import { AnimatedSection } from '@/app/components/AnimatedSection';
 import { useDocumentMeta } from '@/app/hooks/useDocumentMeta';
-
-function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
 
 const airCargoCards = [
   {
@@ -129,21 +113,21 @@ export function LogisticsPage() {
   });
 
   return (
-    <div className="pt-24 bg-ice-warm-white min-h-screen">
-
+    <div>
       {/* Hero */}
-      <section className="bg-ice-navy py-20 border-b border-white/10 premium-grain relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <section className="relative bg-ice-navy text-white pt-40 pb-24 premium-grain overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <h1 className="text-4xl md:text-5xl font-extralight text-white mb-6 tracking-tight">
-              Transport & <span className="font-semibold text-ice-teal-light">Logistics</span>
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal-light mb-6">Logistics</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extralight tracking-tight leading-[1.1] mb-8">
+              Transport &<br />
+              <span className="text-ice-teal-light">global coordination</span>
             </h1>
-            <p className="text-xl text-white/60 font-light leading-relaxed">
+            <p className="text-lg font-light text-white/70 max-w-2xl leading-relaxed">
               Navigating permits, packaging, air cargo, and international regulations — so families and cryopreservation organizations don't have to.
             </p>
           </motion.div>
@@ -205,7 +189,7 @@ export function LogisticsPage() {
                 <div key={item.label} className="text-center p-6">
                   <div className="text-ice-teal-light mb-3 flex justify-center">{item.icon}</div>
                   <div className="text-3xl font-bold text-white mb-1">{item.stat}</div>
-                  <div className="text-xs uppercase tracking-widest text-white/40">{item.label}</div>
+                  <div className="text-xs uppercase tracking-widest text-white/50">{item.label}</div>
                 </div>
               ))}
             </div>
@@ -284,7 +268,7 @@ export function LogisticsPage() {
               <div className="bg-ice-navy text-white p-8 lg:p-10 rounded-xl">
                 <h2 className="text-sm font-bold text-ice-teal-light uppercase tracking-widest mb-4">Cold Chain Integrity</h2>
                 <h3 className="text-xl font-extralight mb-3">Packaging & Cold Chain</h3>
-                <p className="text-sm text-white/40 leading-relaxed mb-8">
+                <p className="text-sm text-white/50 leading-relaxed mb-8">
                   Maintaining temperature during transport is non-negotiable. ICE manages the entire cold chain — from initial dry ice packing through final delivery to the receiving facility.
                 </p>
 
@@ -296,7 +280,7 @@ export function LogisticsPage() {
                       </div>
                       <h4 className="font-bold uppercase text-xs tracking-widest text-white/60">Dry Ice (UN1845)</h4>
                     </div>
-                    <p className="text-sm text-white/40 leading-relaxed mb-2">
+                    <p className="text-sm text-white/50 leading-relaxed mb-2">
                       Dry ice is classified as a Class 9 miscellaneous hazardous material under UN number 1845. ICE handles all regulatory requirements:
                     </p>
                     <ul className="text-sm text-white/50 space-y-1.5 pl-4">
@@ -314,7 +298,7 @@ export function LogisticsPage() {
                       </div>
                       <h4 className="font-bold uppercase text-xs tracking-widest text-white/60">Specialized Containers</h4>
                     </div>
-                    <p className="text-sm text-white/40 leading-relaxed">
+                    <p className="text-sm text-white/50 leading-relaxed">
                       Medical-grade shipping containers designed for human remains transport. Multi-layer insulation rated for extended transit times, sealed against sublimation gas venting, and sized to meet airline cargo door and ULD constraints. Containers are pre-positioned in key regions to minimize preparation time.
                     </p>
                   </div>
@@ -326,7 +310,7 @@ export function LogisticsPage() {
                       </div>
                       <h4 className="font-bold uppercase text-xs tracking-widest text-white/60">Temperature Monitoring</h4>
                     </div>
-                    <p className="text-sm text-white/40 leading-relaxed">
+                    <p className="text-sm text-white/50 leading-relaxed">
                       Continuous temperature monitoring during transport with time-stamped logging. Documentation of cold chain integrity is maintained for the complete journey — from initial packing through every transfer point to final delivery at the receiving CSO. This record becomes part of the permanent case file.
                     </p>
                   </div>
@@ -388,7 +372,7 @@ export function LogisticsPage() {
                 <div className="p-10 lg:p-12 text-white">
                   <h2 className="text-sm font-bold text-ice-teal-light uppercase tracking-widest mb-4">Single Point of Contact</h2>
                   <h3 className="text-2xl font-extralight mb-4">Coordination Points</h3>
-                  <p className="text-white/40 mb-8 leading-relaxed">
+                  <p className="text-white/50 mb-8 leading-relaxed">
                     A typical international cryopreservation case requires ICE to coordinate with six or more entities across multiple time zones. We serve as the single point of contact — managing every relationship so the family has one number to call.
                   </p>
                   <div className="space-y-4">
@@ -397,7 +381,7 @@ export function LogisticsPage() {
                         <Globe size={16} className="text-ice-teal-light mt-1 shrink-0" />
                         <div>
                           <span className="text-sm font-medium text-white/80">{item.label}</span>
-                          <p className="text-xs text-white/35 mt-0.5">{item.detail}</p>
+                          <p className="text-xs text-white/50 mt-0.5">{item.detail}</p>
                         </div>
                       </div>
                     ))}
@@ -409,7 +393,7 @@ export function LogisticsPage() {
                     <AlertTriangle size={20} className="text-ice-teal-light" />
                     <h3 className="text-2xl font-extralight">"Time is Tissue"</h3>
                   </div>
-                  <p className="text-white/40 mb-6 leading-relaxed">
+                  <p className="text-white/50 mb-6 leading-relaxed">
                     Every hour between legal death and cryoprotection matters. ICE plans around common bottlenecks to minimize total elapsed time:
                   </p>
                   <ul className="space-y-4 text-sm text-white/60">

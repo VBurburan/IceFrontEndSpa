@@ -32,7 +32,7 @@ export function Contact() {
                   <Phone size={20} />
                 </div>
                 <div>
-                  <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Standby Activation (24/7)</h3>
+                  <h3 className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1">Standby Activation (24/7)</h3>
                   <a href="tel:844-468-5279" className="text-2xl font-extralight tracking-tight text-white hover:text-ice-teal-light transition-colors">844-INTL-CRYO</a>
                 </div>
               </div>
@@ -42,7 +42,7 @@ export function Contact() {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">General Inquiries</h3>
+                  <h3 className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1">General Inquiries</h3>
                   <a href="mailto:info@cryomedics.org" className="text-lg font-light text-white hover:text-ice-teal-light transition-colors">info@cryomedics.org</a>
                 </div>
               </div>
@@ -52,7 +52,7 @@ export function Contact() {
                   <MapPin size={20} />
                 </div>
                 <div>
-                  <h3 className="text-[10px] font-bold text-white/40 uppercase tracking-widest mb-1">Headquarters</h3>
+                  <h3 className="text-[10px] font-bold text-white/50 uppercase tracking-widest mb-1">Headquarters</h3>
                   <p className="text-lg font-light text-white">Scottsdale, Arizona</p>
                 </div>
               </div>

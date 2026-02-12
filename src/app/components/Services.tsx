@@ -93,10 +93,10 @@ export function Services() {
               )}
 
               <div className="mb-8 border-b border-ice-border-subtle pb-8">
-                <h4 className="text-lg font-semibold text-ice-text-primary mb-2">{tier.name}</h4>
+                <h3 className="text-lg font-semibold text-ice-text-primary mb-2">{tier.name}</h3>
                 <div className="flex items-baseline gap-1 mb-4">
                   <span className="text-4xl font-light text-ice-text-primary">{tier.price}</span>
-                  <span className="text-sm text-slate-400 font-light">/ case</span>
+                  <span className="text-sm text-ice-text-tertiary font-light">/ case</span>
                 </div>
                 <p className="text-sm text-ice-text-secondary leading-relaxed">
                   {tier.description}
@@ -120,7 +120,7 @@ export function Services() {
                   w-full py-4 text-xs font-bold uppercase tracking-widest rounded transition-all duration-300
                   ${tier.recommended 
                     ? 'bg-ice-navy text-white hover:bg-ice-teal shadow-lg hover:shadow-ice-teal/25' 
-                    : 'bg-slate-50 text-ice-text-primary hover:bg-ice-border-subtle'
+                    : 'bg-ice-warm-gray text-ice-text-primary hover:bg-ice-border-subtle'
                   }
                 `}
               >
@@ -136,12 +136,12 @@ export function Services() {
                  <ShieldCheck size={24} />
               </div>
               <div>
-                 <h4 className="font-bold text-ice-text-primary text-sm">Additional Considerations</h4>
+                 <h3 className="font-bold text-ice-text-primary text-sm">Additional Considerations</h3>
                  <p className="text-xs text-ice-text-secondary mt-1">International fees apply for cases outside the continental US.</p>
               </div>
            </div>
            <div className="text-right">
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-ice-text-tertiary">
                 Canada Surcharge: <span className="font-semibold text-ice-text-primary">$12,500</span> • 
                 Global Surcharge: <span className="font-semibold text-ice-text-primary">$25,000+</span>
               </p>

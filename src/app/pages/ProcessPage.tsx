@@ -276,7 +276,7 @@ export function ProcessPage() {
             <h2 className="text-3xl lg:text-4xl font-extralight tracking-tight mb-6">
               Every case is unique. Let's discuss yours.
             </h2>
-            <p className="text-white/60 font-light mb-6 max-w-xl mx-auto">
+            <p className="text-white/70 font-light mb-6 max-w-xl mx-auto">
               Whether you are planning ahead or facing an urgent situation,
               our experienced team is ready to help. We are available 24 hours
               a day, 365 days a year.
@@ -289,8 +289,8 @@ export function ProcessPage() {
                 <Phone size={16} strokeWidth={1.5} />
                 844-INTL-CRYO
               </a>
-              <span className="text-white/20">|</span>
-              <span className="text-white/40 text-sm font-light">Available 24/7/365</span>
+              <span className="text-white/30">|</span>
+              <span className="text-white/60 text-sm font-light">Available 24/7/365</span>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <InquiryDialog>

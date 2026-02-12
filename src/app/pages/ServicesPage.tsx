@@ -430,7 +430,7 @@ export function ServicesPage() {
             <h2 className="text-3xl lg:text-4xl font-extralight tracking-tight mb-6">
               Ready to discuss your case?
             </h2>
-            <p className="text-white/60 font-light mb-10 max-w-xl mx-auto">
+            <p className="text-white/70 font-light mb-10 max-w-xl mx-auto">
               Every situation is unique. Let's talk about what ICE can do for you and your family.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

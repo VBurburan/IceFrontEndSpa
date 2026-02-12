@@ -21,7 +21,7 @@ export function Hero() {
       <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
         <img
           src="https://imgur.com/1PLU9xV.png"
-          alt="ICE Medical Transport"
+          alt="ICE cryopreservation team performing field stabilization procedures"
           className="w-full h-[120%] object-cover object-[75%_center] lg:object-center"
         />
         {/* Overlay: dark from left for text legibility, letting the image breathe on right */}
@@ -132,13 +132,14 @@ export function Hero() {
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        aria-hidden="true"
       >
-        <span className="text-[10px] font-medium tracking-widest uppercase text-white/40">Scroll</span>
+        <span className="text-[10px] font-medium tracking-widest uppercase text-white/60">Scroll</span>
         <motion.div
           animate={{ y: [0, 6, 0] }}
           transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <ChevronDown size={16} className="text-white/40" />
+          <ChevronDown size={16} className="text-white/60" />
         </motion.div>
       </motion.div>
     </div>
