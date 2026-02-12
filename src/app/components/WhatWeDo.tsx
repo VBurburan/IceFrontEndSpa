@@ -34,11 +34,11 @@ export function WhatWeDo() {
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h2 className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-4">Our Expertise</h2>
-          <h3 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">
+          <p className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-4">Our Expertise</p>
+          <h2 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">
             Bridging the gap between <br />
             <span className="text-ice-text-tertiary italic">today's end and tomorrow's beginning</span>
-          </h3>
+          </h2>
           <p className="text-ice-text-secondary font-light leading-relaxed">
             We specialize in the critical phase immediately following legal death. Our SST (Standby, Stabilization, and Transport) teams intervene to stop biological decay and prepare the patient for long-term cryopreservation.
           </p>

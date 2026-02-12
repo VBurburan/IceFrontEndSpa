@@ -13,6 +13,7 @@ import { BackToTop } from "@/app/components/BackToTop";
 import { EmergencyCTA } from "@/app/components/EmergencyCTA";
 import { ReadingProgress } from "@/app/components/ReadingProgress";
 import { PageLoader } from "@/app/components/PageLoader";
+import { useDocumentMeta } from "@/app/hooks/useDocumentMeta";
 
 const LogisticsPage = lazy(() => import('@/app/pages/LogisticsPage'));
 const LegalPage = lazy(() => import('@/app/pages/LegalPage'));
@@ -62,6 +63,11 @@ function AnimatedRoutes() {
 }
 
 function HomePage() {
+  useDocumentMeta({
+    title: 'ICE — International Cryomedicine Experts | Standby, Stabilization & Transport',
+    description: 'ICE provides ICU-level standby, stabilization, and cryopreservation transport services worldwide. 24/7 rapid deployment by the most experienced team in human cryopreservation.',
+  });
+
   return (
     <>
       <Hero />

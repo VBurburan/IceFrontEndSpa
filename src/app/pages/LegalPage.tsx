@@ -1,5 +1,6 @@
 import { motion } from 'motion/react';
 import { useParams } from 'react-router-dom';
+import { useDocumentMeta } from '@/app/hooks/useDocumentMeta';
 
 const legalContent: Record<string, { title: string; lastUpdated: string; sections: { heading: string; body: string }[] }> = {
   'privacy-policy': {
@@ -81,6 +82,11 @@ const legalContent: Record<string, { title: string; lastUpdated: string; section
 export function LegalPage() {
   const { slug } = useParams<{ slug: string }>();
   const content = slug ? legalContent[slug] : null;
+
+  useDocumentMeta({
+    title: content ? `${content.title} | ICE` : 'Page Not Found | ICE',
+    description: content ? `${content.title} for International Cryomedicine Experts (ICE). Last updated ${content.lastUpdated}.` : 'Page not found.',
+  });
 
   if (!content) {
     return (
