@@ -1,9 +1,15 @@
 import { motion } from 'motion/react';
 import { ArrowLeft, Snowflake } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useDocumentMeta } from '@/app/hooks/useDocumentMeta';
 
 export function NotFoundPage() {
   const navigate = useNavigate();
+
+  useDocumentMeta({
+    title: '404 — Page Not Found | ICE',
+    description: 'The page you are looking for does not exist. Return to the ICE homepage or contact us for assistance.',
+  });
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-ice-warm-gray pt-24 pb-16">

@@ -43,11 +43,11 @@ export function Leadership() {
             transition={{ duration: 0.7, delay: 0.15 }}
             className="w-full lg:w-1/2"
           >
-             <h2 className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Leadership</h2>
-             <h3 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-8">
+             <p className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Leadership</p>
+             <h2 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-8">
                Setting the clinical standard for <br />
                <span className="font-serif italic text-ice-text-tertiary">human cryopreservation.</span>
-             </h3>
+             </h2>
 
              <div className="space-y-6 text-ice-text-secondary font-light leading-relaxed mb-8 text-lg">
                <p>

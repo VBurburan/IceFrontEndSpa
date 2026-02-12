@@ -55,11 +55,11 @@ export function International() {
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h2 className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Global Reach</h2>
-          <h3 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">
+          <p className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Global Reach</p>
+          <h2 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">
             Deployed worldwide. <br />
             <span className="italic text-ice-text-tertiary">Wherever the case demands.</span>
-          </h3>
+          </h2>
           <p className="text-ice-text-secondary font-light leading-relaxed">
             ICE has executed cases on every inhabited continent. Our logistics network spans 40+ countries,
             with established relationships with funeral directors, consulates, customs brokers, and air cargo providers around the world.

@@ -31,7 +31,6 @@ export function Services() {
       name: "SST Protocol",
       price: "$50,000",
       description: "Full-service standby, stabilization, and transport. The industry standard for high-fidelity preservation.",
-      recommended: true,
       features: [
         "24/7 Standby Team Deployment",
         "On-site Stabilization Meds",
@@ -44,6 +43,7 @@ export function Services() {
       name: "SST + Perfusion",
       price: "$80,000",
       description: "Advanced field capabilities including cryoprotectant introduction and surgical intervention.",
+      recommended: true,
       features: [
         "All SST Protocol services",
         "Field Cryoprotectant Perfusion",
@@ -63,8 +63,8 @@ export function Services() {
           transition={{ duration: 0.7 }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <h2 className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Transparent Pricing</h2>
-          <h3 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">Comprehensive Service Protocols</h3>
+          <p className="text-xs font-bold text-ice-teal uppercase tracking-[0.25em] mb-3">Transparent Pricing</p>
+          <h2 className="text-3xl md:text-4xl font-extralight text-ice-text-primary tracking-tight mb-6">Comprehensive Service Protocols</h2>
           <p className="text-ice-text-secondary font-light leading-relaxed">
             We offer tiered levels of support designed to meet specific clinical and logistical needs.
             All protocols are executed in strict partnership with receiving organizations.
@@ -88,7 +88,7 @@ export function Services() {
             >
               {tier.recommended && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-ice-navy text-ice-gold text-[10px] font-bold uppercase tracking-widest px-4 py-1 rounded-full shadow-lg">
-                  Most Common
+                  Comprehensive
                 </div>
               )}
 

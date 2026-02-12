@@ -6,93 +6,169 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/app/components/ui/ta
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/app/components/ui/accordion';
 import { InquiryDialog } from '@/app/components/InquiryDialog';
 import { Link } from 'react-router-dom';
+import { useDocumentMeta } from '@/app/hooks/useDocumentMeta';
 
 const tiers = [
   {
     id: 'consultation',
     name: 'Consultation',
     price: 15000,
-    tagline: 'Planning & assessment for future needs',
-    description: 'A comprehensive consultation with our team to evaluate your situation, develop a preliminary protocol, and establish a relationship with ICE before the need arises. This includes assessment of your geographic location, health considerations, and coordination with your chosen cryopreservation organization.',
+    tagline: 'Comprehensive logistics planning & clinical direction',
+    description:
+      'A full-scope consultation covering every aspect of standby logistics. Our team provides remote clinical direction, coordinates directly with your chosen cryopreservation organization (CI, Alcor, or others), manages family communication relay, reviews legal directives, and delivers ongoing status updates throughout the planning process. This service does not include mortuary or funeral home fees.',
     features: [
-      'In-depth assessment of your specific circumstances',
-      'Preliminary standby protocol development',
-      'Coordination plan with your cryopreservation provider',
-      'Geographic risk assessment and logistics planning',
-      'Emergency contact protocols established',
+      'Complete logistics planning and assessment',
+      'Remote clinical direction from experienced team',
+      'Direct coordination with CI, Alcor, or your chosen CSO',
+      'Family communication relay and liaison services',
+      'Legal directive review and compliance check',
+      'Ongoing status updates throughout the process',
       'Written protocol document for your records',
+      'Emergency contact protocols established',
     ],
     timeline: 'Typically completed within 2-4 weeks',
+    note: 'Does not include mortuary or funeral home fees',
   },
   {
     id: 'sst',
     name: 'SST Protocol',
     price: 50000,
-    tagline: 'Full standby, stabilization & transport',
-    recommended: true,
-    description: 'Our core service: a complete standby, stabilization, and transport deployment. When the time comes, our team deploys to your location with full medical-grade equipment. We perform field stabilization using ICU-level protocols, initiate cooling, and coordinate transport to your designated receiving organization.',
+    tagline: 'Full standby, stabilization & transport deployment',
+    description:
+      'Our core deployment service. When the time comes, a trained standby team deploys to your location with medical-grade equipment. We administer stabilization medications, provide mechanical cardiopulmonary support and ventilation, execute controlled cool-down procedures, and handle all packaging and transport logistics to your designated cryopreservation organization. This service does not include mortuary or funeral home fees.',
     features: [
-      'Everything in Consultation',
-      '24/7 standby deployment team',
-      'ICU-level field stabilization equipment',
+      'Deployed standby team at your location',
+      'Stabilization medications administered on-site',
       'Mechanical cardiopulmonary support (Lucas device)',
-      'Medication protocol administration',
-      'Controlled cooling initiation',
-      'Dry ice and wet ice cooling management',
-      'Full transport coordination (ground and air)',
+      'Mechanical ventilation support',
+      'Controlled cool-down procedures',
+      'Packaging for transport to CSO',
+      'Full ground and air transport coordination',
       'Real-time case documentation',
-      'Handoff to receiving organization',
+      'Handoff coordination with receiving CSO',
     ],
     timeline: 'Team deploys within hours of activation',
+    note: 'Does not include mortuary or funeral home fees',
   },
   {
     id: 'perfusion',
     name: 'SST + Perfusion',
     price: 80000,
-    tagline: 'Advanced protocol with surgical capabilities',
-    description: 'Our most comprehensive service adds surgical perfusion capabilities to the standard SST protocol. This includes field surgical access for perfusion, cryoprotectant administration, and advanced monitoring throughout the process. Recommended for cases where the highest level of biological preservation is desired.',
+    tagline: 'Complete protocol with field surgery & cryoprotectant perfusion',
+    recommended: true,
+    description:
+      'Our most comprehensive service adds field surgical capabilities and cryoprotectant perfusion to the full SST protocol. This includes vascular access, perfusion circuit setup, and administration of cryoprotectant solution — all performed in the field. The patient is then prepared with specialized dry ice shipping and transported to the receiving CSO. Recommended when the patient is geographically distant from their CSO or when time-sensitivity is critical. This service does not include mortuary or funeral home fees.',
     features: [
       'Everything in SST Protocol',
-      'Field surgical team capabilities',
-      'Vascular access and perfusion circuit',
+      'Field surgery for vascular access',
+      'Perfusion circuit setup and operation',
       'Cryoprotectant perfusion protocol',
-      'Advanced temperature monitoring',
+      'Advanced temperature monitoring throughout',
+      'Specialized dry ice shipping preparation',
       'Extended cooling management',
-      'Enhanced biological preservation metrics',
-      'Comprehensive case documentation with medical records',
+      'Comprehensive case documentation with full medical records',
+      'Transport to CSO with specialized packaging',
     ],
     timeline: 'Full protocol typically 8-16 hours from deployment',
+    note: 'Does not include mortuary or funeral home fees',
+  },
+];
+
+const standbyDurationFees = [
+  {
+    label: 'Critical risk — first 96 hours',
+    value: 'Included',
+    detail: 'Included in your base service price',
+  },
+  {
+    label: 'Critical risk — beyond 96 hours',
+    value: '$2,750/day',
+    detail: 'Each additional day beyond the initial window',
+  },
+  {
+    label: 'Less than critical risk — first 72 hours',
+    value: '$7,500',
+    detail: 'Per deployment for the initial standby period',
+  },
+  {
+    label: 'Extensions beyond initial period',
+    value: '$2,750/day',
+    detail: 'Available upon request for continued standby',
+  },
+];
+
+const notIncludedItems = [
+  {
+    title: 'Mortuary & funeral home fees',
+    description:
+      'Local mortuary or funeral home services required for legal pronouncement and preparation. These fees typically range from $2,000 to $5,000 depending on location and services required.',
+  },
+  {
+    title: 'CSO membership & long-term storage',
+    description:
+      'Membership and cryopreservation storage fees are paid directly to your chosen organization. Cryonics Institute plans start around $28,000. Alcor plans range from approximately $80,000 to $220,000 depending on the preservation option selected.',
+  },
+  {
+    title: 'ICE provides SST services only',
+    description:
+      'ICE specializes exclusively in standby, stabilization, and transport. We do not provide long-term cryopreservation storage. Our role ends with the successful handoff to your designated CSO.',
   },
 ];
 
 const faqs = [
   {
     question: 'What happens after I contact ICE?',
-    answer: 'Within 2 hours, a case coordinator will reach out to discuss your situation. We\'ll assess the urgency, begin developing a preliminary protocol, and outline next steps. For emergency cases, our 24/7 standby line connects you directly with a deployment coordinator.',
+    answer:
+      'Within 2 hours, a case coordinator will reach out to discuss your situation. We\'ll assess the urgency, begin developing a preliminary protocol, and outline next steps. For emergency cases, our 24/7 standby line connects you directly with a deployment coordinator.',
   },
   {
     question: 'How far in advance should I arrange standby?',
-    answer: 'The earlier, the better. Pre-arranged cases allow us to position equipment, coordinate with local medical providers, and develop detailed protocols specific to your location. However, we also handle urgent deployments — our team can mobilize within hours when needed.',
+    answer:
+      'The earlier, the better. Pre-arranged cases allow us to position equipment, coordinate with local medical providers, and develop detailed protocols specific to your location. However, we also handle urgent deployments — our team can mobilize within hours when needed.',
   },
   {
     question: 'Which organizations do you work with?',
-    answer: 'ICE works with all major cryopreservation organizations including Alcor Life Extension Foundation, Cryonics Institute, and international organizations. We coordinate the handoff to your chosen provider as part of our standard service.',
+    answer:
+      'ICE works with all major cryopreservation organizations including Alcor Life Extension Foundation, Cryonics Institute, and international organizations. We coordinate the handoff to your chosen provider as part of our standard service.',
   },
   {
     question: 'What are the international surcharges?',
-    answer: 'Cases in Canada incur an additional $12,500 surcharge to cover cross-border logistics and regulatory compliance. All other international cases carry a $25,000+ surcharge, depending on location complexity, local regulations, and transport requirements.',
+    answer:
+      'Cases in Canada incur an additional $12,500 surcharge to cover cross-border logistics and regulatory compliance. All other international cases carry a $25,000+ surcharge, depending on location complexity, local regulations, and transport requirements.',
+  },
+  {
+    question: 'How do standby duration fees work?',
+    answer:
+      'For patients at critical risk, the first 96 hours of standby are included in the base service price. If the standby extends beyond 96 hours, additional days are billed at $2,750 per day. For patients assessed as less than critical risk, the initial deployment covers the first 72 hours at a flat rate of $7,500 per deployment, with extensions available at $2,750 per day upon request.',
+  },
+  {
+    question: 'Does ICE provide long-term cryopreservation storage?',
+    answer:
+      'No. ICE specializes exclusively in standby, stabilization, and transport (SST) services. We do not operate any long-term storage facilities. Once our protocol is complete, we coordinate the handoff to your chosen cryopreservation organization — such as Cryonics Institute or Alcor — who handle all long-term storage. You must arrange membership and storage contracts directly with your CSO.',
   },
   {
     question: 'What payment options are available?',
-    answer: 'We accept wire transfers, certified checks, and can work with life insurance assignment arrangements. Payment plans may be available for consultation and pre-arranged cases. Contact us to discuss your specific situation.',
+    answer:
+      'We accept wire transfers, certified checks, and can work with life insurance assignment arrangements. Payment plans may be available for consultation and pre-arranged cases. Contact us to discuss your specific situation.',
   },
   {
     question: 'What if I\'m not sure which tier I need?',
-    answer: 'Start with a Consultation. Our team will assess your situation and recommend the appropriate service level. The Consultation fee can be applied toward a full SST or SST + Perfusion engagement if you proceed within 12 months.',
+    answer:
+      'Start with a Consultation. Our team will assess your situation and recommend the appropriate service level. The Consultation fee can be applied toward a full SST or SST + Perfusion engagement if you proceed within 12 months.',
+  },
+  {
+    question: 'Why is SST + Perfusion recommended?',
+    answer:
+      'Field perfusion with cryoprotectant significantly reduces ice crystal formation in tissues, which is one of the primary sources of structural damage during cryopreservation. When a patient is far from their CSO or when time between legal death and the start of cryoprotection is expected to be long, performing perfusion in the field — rather than waiting until the patient reaches the CSO — can meaningfully improve preservation quality.',
   },
 ];
 
 export function ServicesPage() {
+  useDocumentMeta({
+    title: 'ICE Services & Pricing | SST & Perfusion Protocols from $15,000',
+    description: 'ICE offers three tiers of cryopreservation standby services: Consultation ($15K), SST Protocol ($50K), and SST + Perfusion ($80K). Transparent pricing with 24/7 deployment.',
+  });
+
   return (
     <div>
       {/* Hero */}
@@ -152,7 +228,7 @@ export function ServicesPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <Tabs defaultValue="sst" className="w-full">
+            <Tabs defaultValue="perfusion" className="w-full">
               <TabsList className="w-full bg-white border border-ice-border-subtle rounded-lg p-1 h-auto flex">
                 {tiers.map((tier) => (
                   <TabsTrigger
@@ -162,7 +238,7 @@ export function ServicesPage() {
                   >
                     {tier.name}
                     {tier.recommended && (
-                      <span className="hidden sm:inline ml-2 text-[10px] font-bold text-ice-gold">RECOMMENDED</span>
+                      <span className="hidden sm:inline ml-2 text-[10px] font-bold text-ice-gold">COMPREHENSIVE</span>
                     )}
                   </TabsTrigger>
                 ))}
@@ -206,6 +282,12 @@ export function ServicesPage() {
                       </div>
                     </div>
 
+                    {tier.note && (
+                      <div className="mt-8 px-4 py-3 bg-ice-warm-gray rounded-lg border border-ice-border-subtle">
+                        <p className="text-xs text-ice-text-tertiary italic">{tier.note}</p>
+                      </div>
+                    )}
+
                     <div className="mt-10 flex flex-col sm:flex-row gap-4">
                       <InquiryDialog>
                         <button className="px-8 py-3.5 bg-ice-navy text-white text-xs font-bold uppercase tracking-widest rounded hover:bg-ice-teal transition-colors">
@@ -239,6 +321,72 @@ export function ServicesPage() {
                 <p className="text-2xl font-extralight text-ice-text-primary">+$25,000<span className="text-base">+</span></p>
                 <p className="text-xs text-ice-text-tertiary mt-1">Varies by location & regulatory complexity</p>
               </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* Standby Duration Fees */}
+      <section className="py-24 lg:py-32">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal mb-4">Duration Pricing</p>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-ice-text-primary tracking-tight">
+              Standby duration fees
+            </h2>
+            <p className="text-ice-text-tertiary font-light mt-4 max-w-2xl mx-auto">
+              Standby duration varies depending on each patient's clinical timeline.
+              Base service prices include an initial standby window, with transparent
+              per-day pricing for extensions.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.15}>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {standbyDurationFees.map((item) => (
+                <div
+                  key={item.label}
+                  className="bg-white rounded-xl border border-ice-border-subtle p-6 lg:p-8"
+                >
+                  <h4 className="text-sm font-medium text-ice-text-primary mb-2">{item.label}</h4>
+                  <p className="text-3xl font-extralight text-ice-text-primary mb-2">{item.value}</p>
+                  <p className="text-xs text-ice-text-tertiary">{item.detail}</p>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      {/* What's Not Included */}
+      <section className="py-24 lg:py-32 bg-ice-warm-gray">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-12">
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal mb-4">Transparency</p>
+            <h2 className="text-3xl lg:text-4xl font-extralight text-ice-text-primary tracking-tight">
+              What's not included
+            </h2>
+            <p className="text-ice-text-tertiary font-light mt-4 max-w-2xl mx-auto">
+              ICE is focused exclusively on standby, stabilization, and transport.
+              The following costs are separate from ICE service fees and are paid
+              directly to the respective providers.
+            </p>
+          </AnimatedSection>
+
+          <AnimatedSection delay={0.15}>
+            <div className="grid md:grid-cols-3 gap-6">
+              {notIncludedItems.map((item) => (
+                <div
+                  key={item.title}
+                  className="bg-white rounded-xl border border-ice-border-subtle p-6 lg:p-8"
+                >
+                  <div className="h-px w-8 bg-ice-gold mb-6" />
+                  <h4 className="text-sm font-medium text-ice-text-primary mb-3">{item.title}</h4>
+                  <p className="text-sm text-ice-text-secondary font-light leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>
