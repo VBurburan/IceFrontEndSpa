@@ -98,7 +98,7 @@ export function Navbar() {
             />
             <div className="hidden min-[420px]:block border-l border-ice-border-subtle pl-3">
               <span className="block text-sm font-bold text-ice-text-primary leading-none tracking-tight">ICE</span>
-              <span className="block text-[0.6rem] font-medium text-ice-text-tertiary uppercase tracking-wider leading-tight mt-0.5">Cryomedicine Experts</span>
+              <span className="block text-[0.6rem] font-medium text-ice-text-tertiary uppercase tracking-wider leading-tight mt-0.5">International Cryomedicine Experts</span>
             </div>
           </Link>
 
