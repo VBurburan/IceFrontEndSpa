@@ -144,9 +144,7 @@ export function ContactPage() {
                         <Skeleton className="h-10 w-1/2" />
                       </div>
                     )}
-                    <div onLoad={() => setFormLoaded(true)}>
-                      <InquiryForm />
-                    </div>
+                    <InquiryForm onLoad={() => setFormLoaded(true)} />
                   </div>
                 </div>
               </div>

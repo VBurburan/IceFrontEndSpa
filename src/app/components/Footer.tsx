@@ -27,13 +27,13 @@ export function Footer() {
               The world's most experienced standby, stabilization, and transport team for cryopreservation.
             </p>
             <nav aria-label="Social media links" className="flex gap-3 pt-2">
-              <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X (Twitter)" className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-ice-teal/50 hover:text-ice-teal-light transition-all">
+              <a href="https://x.com/cryomedics" target="_blank" rel="noopener noreferrer" aria-label="Follow ICE on X (Twitter)" className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-ice-teal/50 hover:text-ice-teal-light transition-all">
                 <Twitter size={14} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on LinkedIn" className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-ice-teal/50 hover:text-ice-teal-light transition-all">
+              <a href="https://linkedin.com/company/cryomedics" target="_blank" rel="noopener noreferrer" aria-label="Follow ICE on LinkedIn" className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-ice-teal/50 hover:text-ice-teal-light transition-all">
                 <Linkedin size={14} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram" className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-ice-teal/50 hover:text-ice-teal-light transition-all">
+              <a href="https://instagram.com/cryomedics" target="_blank" rel="noopener noreferrer" aria-label="Follow ICE on Instagram" className="p-2.5 rounded-lg bg-white/5 border border-white/10 hover:border-ice-teal/50 hover:text-ice-teal-light transition-all">
                 <Instagram size={14} />
               </a>
             </nav>
@@ -92,7 +92,7 @@ export function Footer() {
         {/* Trust signals */}
         <div className="flex flex-wrap justify-center gap-8 py-8 border-t border-white/5 mb-8">
           {['HIPAA Aligned Practices', '24/7 Global Deployment', '150+ Cryopreservations', 'Est. 2015'].map((signal) => (
-            <span key={signal} className="text-[10px] font-bold tracking-widest uppercase text-white/20">
+            <span key={signal} className="text-[10px] font-bold tracking-widest uppercase text-white/40">
               {signal}
             </span>
           ))}
@@ -101,7 +101,7 @@ export function Footer() {
         {/* Gold accent line */}
         <div className="h-px bg-gradient-to-r from-transparent via-ice-gold/20 to-transparent mb-8" />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-white/30">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-white/45">
           <p>&copy; {currentYear} International Cryomedicine Experts. All rights reserved.</p>
           <nav aria-label="Legal links" className="flex gap-8">
             <Link to="/legal/privacy-policy" className="hover:text-ice-teal-light transition-colors">Privacy Policy</Link>

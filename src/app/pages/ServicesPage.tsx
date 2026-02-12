@@ -228,7 +228,7 @@ export function ServicesPage() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.15}>
-            <Tabs defaultValue="perfusion" className="w-full">
+            <Tabs defaultValue="sst" className="w-full">
               <TabsList className="w-full bg-white border border-ice-border-subtle rounded-lg p-1 h-auto flex">
                 {tiers.map((tier) => (
                   <TabsTrigger

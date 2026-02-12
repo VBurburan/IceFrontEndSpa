@@ -21,7 +21,10 @@ export function Hero() {
       <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
         <img
           src="https://imgur.com/1PLU9xV.png"
-          alt="ICE Medical Transport"
+          alt="ICE medical transport team preparing cryopreservation equipment for deployment"
+          width={1920}
+          height={1080}
+          fetchPriority="high"
           className="w-full h-[120%] object-cover object-[75%_center] lg:object-center"
         />
         {/* Overlay: dark from left for text legibility, letting the image breathe on right */}

@@ -94,6 +94,8 @@ export function Navbar() {
             <img
               src="https://i.imgur.com/0uIOCcE.png"
               alt="ICE International Cryomedicine Experts"
+              width={48}
+              height={48}
               className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-9' : 'h-12'}`}
             />
             <div className="hidden min-[420px]:block border-l border-ice-border-subtle pl-3">
@@ -109,6 +111,7 @@ export function Navbar() {
               <Link
                 key={link.label}
                 to={link.href}
+                aria-current={isActivePath(link.href) ? 'page' : undefined}
                 className={`relative px-4 py-2 text-xs font-semibold uppercase tracking-widest transition-all duration-200 rounded-sm ${
                   isActivePath(link.href)
                     ? 'text-ice-teal'

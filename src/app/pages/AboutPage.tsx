@@ -266,6 +266,8 @@ export function AboutPage() {
                 <img
                   src="https://i.imgur.com/VXbNScc.jpg"
                   alt="Aaron Drake, Managing Partner at ICE International Cryomedicine Experts"
+                  width={600}
+                  height={400}
                   className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   loading="lazy"
                 />

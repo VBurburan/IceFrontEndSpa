@@ -1,23 +1,7 @@
-import { motion, useInView } from 'motion/react';
-import { useRef } from 'react';
+import { motion } from 'motion/react';
 import { Plane, FileCheck, ThermometerSnowflake, Globe, Clock, ShieldCheck, FileText, Users, MapPin, AlertTriangle } from 'lucide-react';
 import { useDocumentMeta } from '@/app/hooks/useDocumentMeta';
-
-function AnimatedSection({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-80px' });
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6 }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
+import { AnimatedSection } from '@/app/components/AnimatedSection';
 
 const airCargoCards = [
   {
@@ -129,10 +113,10 @@ export function LogisticsPage() {
   });
 
   return (
-    <div className="pt-24 bg-ice-warm-white min-h-screen">
+    <div>
 
       {/* Hero */}
-      <section className="bg-ice-navy py-20 border-b border-white/10 premium-grain relative overflow-hidden">
+      <section className="relative bg-ice-navy text-white pt-40 pb-24 premium-grain overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -140,10 +124,11 @@ export function LogisticsPage() {
             transition={{ duration: 0.6 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-5xl font-extralight text-white mb-6 tracking-tight">
-              Transport & <span className="font-semibold text-ice-teal-light">Logistics</span>
+            <p className="text-xs font-bold tracking-[0.25em] uppercase text-ice-teal-light mb-6">Logistics</p>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extralight tracking-tight leading-[1.1] mb-8">
+              Transport &<br /><span className="text-ice-teal-light">Logistics</span>
             </h1>
-            <p className="text-xl text-white/60 font-light leading-relaxed">
+            <p className="text-lg font-light text-white/70 max-w-2xl leading-relaxed">
               Navigating permits, packaging, air cargo, and international regulations — so families and cryopreservation organizations don't have to.
             </p>
           </motion.div>
@@ -171,7 +156,9 @@ export function LogisticsPage() {
               <div className="relative rounded-xl overflow-hidden shadow-xl h-[400px] group">
                 <img
                   src="https://imgur.com/yhxRp7A.png"
-                  alt="ICE Logistics Coordination"
+                  alt="ICE team coordinating international cryopreservation transport logistics"
+                  width={800}
+                  height={400}
                   loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700"
                 />
