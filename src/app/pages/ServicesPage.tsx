@@ -311,13 +311,13 @@ export function ServicesPage() {
           <AnimatedSection delay={0.3} className="mt-12">
             <div className="bg-white rounded-xl border border-ice-border-subtle p-8 flex flex-col sm:flex-row gap-6">
               <div className="flex-1">
-                <h4 className="text-sm font-medium text-ice-text-primary mb-1">Canada</h4>
+                <h3 className="text-sm font-medium text-ice-text-primary mb-1">Canada</h3>
                 <p className="text-2xl font-extralight text-ice-text-primary">+$12,500</p>
                 <p className="text-xs text-ice-text-tertiary mt-1">Cross-border logistics & compliance</p>
               </div>
               <div className="hidden sm:block w-px bg-ice-border-subtle" />
               <div className="flex-1">
-                <h4 className="text-sm font-medium text-ice-text-primary mb-1">International</h4>
+                <h3 className="text-sm font-medium text-ice-text-primary mb-1">International</h3>
                 <p className="text-2xl font-extralight text-ice-text-primary">+$25,000<span className="text-base">+</span></p>
                 <p className="text-xs text-ice-text-tertiary mt-1">Varies by location & regulatory complexity</p>
               </div>
@@ -348,7 +348,7 @@ export function ServicesPage() {
                   key={item.label}
                   className="bg-white rounded-xl border border-ice-border-subtle p-6 lg:p-8"
                 >
-                  <h4 className="text-sm font-medium text-ice-text-primary mb-2">{item.label}</h4>
+                  <h3 className="text-sm font-medium text-ice-text-primary mb-2">{item.label}</h3>
                   <p className="text-3xl font-extralight text-ice-text-primary mb-2">{item.value}</p>
                   <p className="text-xs text-ice-text-tertiary">{item.detail}</p>
                 </div>
@@ -381,7 +381,7 @@ export function ServicesPage() {
                   className="bg-white rounded-xl border border-ice-border-subtle p-6 lg:p-8"
                 >
                   <div className="h-px w-8 bg-ice-gold mb-6" />
-                  <h4 className="text-sm font-medium text-ice-text-primary mb-3">{item.title}</h4>
+                  <h3 className="text-sm font-medium text-ice-text-primary mb-3">{item.title}</h3>
                   <p className="text-sm text-ice-text-secondary font-light leading-relaxed">
                     {item.description}
                   </p>

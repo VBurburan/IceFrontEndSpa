@@ -69,7 +69,7 @@ export function WhatWeDo() {
                   0{i + 1}
                 </span>
               </div>
-              <h4 className="text-xl font-medium text-ice-text-primary mb-3">{cap.title}</h4>
+              <h3 className="text-xl font-medium text-ice-text-primary mb-3">{cap.title}</h3>
               <p className="text-sm text-ice-text-secondary leading-relaxed font-light">
                 {cap.description}
               </p>

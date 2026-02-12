@@ -13,7 +13,7 @@ export function Leadership() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="leadership" className="py-24 bg-ice-warm-gray">
+    <section id="leadership" className="py-24 bg-ice-warm-gray overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" ref={ref}>
         <div className="flex flex-col lg:flex-row gap-16 items-center">
 
@@ -28,9 +28,11 @@ export function Leadership() {
                  src="https://i.imgur.com/VXbNScc.jpg"
                  alt="Aaron Drake, Senior Medical Response Consultant at ICE"
                  loading="lazy"
+                 width={800}
+                 height={600}
                  className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700"
                />
-               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-ice-navy/90 via-ice-navy/50 to-transparent p-8">
+               <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-ice-navy via-ice-navy/70 to-transparent p-8">
                   <h3 className="text-white text-2xl font-light">Aaron Drake</h3>
                   <p className="text-ice-teal-light text-sm font-bold uppercase tracking-widest mt-1">Senior Medical Response Consultant</p>
                </div>

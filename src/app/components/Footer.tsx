@@ -12,10 +12,12 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-8">
             <div className="flex flex-col items-start gap-4">
-              <Link to="/" className="p-2 bg-white/5 rounded-lg inline-block hover:bg-white/10 transition-colors">
+              <Link to="/" aria-label="ICE home page" className="p-2 bg-white/5 rounded-lg inline-block hover:bg-white/10 transition-colors">
                 <img
                   src="https://i.imgur.com/0uIOCcE.png"
                   alt="ICE International Cryomedicine Experts"
+                  width={160}
+                  height={64}
                   className="h-16 w-auto"
                 />
               </Link>
@@ -41,9 +43,9 @@ export function Footer() {
 
           {/* Services */}
           <nav aria-label="Services navigation">
-            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8 flex items-center gap-2">
+            <p className="text-white font-bold uppercase tracking-widest text-xs mb-8 flex items-center gap-2">
               <span className="w-8 h-px bg-ice-teal"></span> Services
-            </h4>
+            </p>
             <ul className="space-y-4 text-sm">
               <li><Link to="/services" className="hover:text-ice-teal-light transition-colors flex items-center gap-3 group"><div className="w-1 h-1 bg-white/30 rounded-full group-hover:bg-ice-teal transition-colors" /> Overview & Pricing</Link></li>
               <li><Link to="/process" className="hover:text-ice-teal-light transition-colors flex items-center gap-3 group"><div className="w-1 h-1 bg-white/30 rounded-full group-hover:bg-ice-teal transition-colors" /> The Process</Link></li>
@@ -53,9 +55,9 @@ export function Footer() {
 
           {/* Company */}
           <nav aria-label="Company navigation">
-            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8 flex items-center gap-2">
+            <p className="text-white font-bold uppercase tracking-widest text-xs mb-8 flex items-center gap-2">
               <span className="w-8 h-px bg-ice-teal"></span> Company
-            </h4>
+            </p>
             <ul className="space-y-4 text-sm">
               <li><Link to="/about" className="hover:text-ice-teal-light transition-colors flex items-center gap-3 group"><div className="w-1 h-1 bg-white/30 rounded-full group-hover:bg-ice-teal transition-colors" /> About ICE</Link></li>
               <li><Link to="/about#leadership" className="hover:text-ice-teal-light transition-colors flex items-center gap-3 group"><div className="w-1 h-1 bg-white/30 rounded-full group-hover:bg-ice-teal transition-colors" /> Leadership</Link></li>
@@ -65,9 +67,9 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-bold uppercase tracking-widest text-xs mb-8 flex items-center gap-2">
+            <p className="text-white font-bold uppercase tracking-widest text-xs mb-8 flex items-center gap-2">
               <span className="w-8 h-px bg-ice-teal"></span> Activation
-            </h4>
+            </p>
             <ul className="space-y-6 text-sm">
               <li className="flex items-start gap-4 p-4 bg-white/5 border border-white/10 rounded-lg">
                 <Phone size={18} className="text-white/70 shrink-0 mt-0.5" />

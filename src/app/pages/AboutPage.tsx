@@ -163,6 +163,7 @@ export function AboutPage() {
             </div>
           </AnimatedSection>
 
+          <h2 className="sr-only">Our Philosophy</h2>
           <div className="grid md:grid-cols-2 gap-16">
             <AnimatedSection variant="fade-left" delay={0.1}>
               <div className="h-px w-12 bg-ice-gold mb-8" />
@@ -266,6 +267,8 @@ export function AboutPage() {
                 <img
                   src="https://i.imgur.com/VXbNScc.jpg"
                   alt="Aaron Drake, Managing Partner at ICE International Cryomedicine Experts"
+                  width={800}
+                  height={600}
                   className="w-full h-auto object-cover group-hover:scale-[1.02] transition-transform duration-700"
                   loading="lazy"
                 />

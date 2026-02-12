@@ -99,9 +99,9 @@ export function International() {
               }`}
             >
               <div className="flex items-start justify-between mb-4">
-                <h4 className={`text-xl font-medium ${region.highlight ? 'text-white' : 'text-ice-text-primary'}`}>
+                <h3 className={`text-xl font-medium ${region.highlight ? 'text-white' : 'text-ice-text-primary'}`}>
                   {region.name}
-                </h4>
+                </h3>
                 {region.highlight && (
                   <span className="text-[10px] font-bold uppercase tracking-widest bg-ice-gold/20 text-ice-gold px-3 py-1 rounded-full">
                     Primary

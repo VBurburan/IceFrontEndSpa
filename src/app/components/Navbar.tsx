@@ -94,6 +94,8 @@ export function Navbar() {
             <img
               src="https://i.imgur.com/0uIOCcE.png"
               alt="ICE International Cryomedicine Experts"
+              width={120}
+              height={48}
               className={`w-auto object-contain transition-all duration-300 ${scrolled ? 'h-9' : 'h-12'}`}
             />
             <div className="hidden min-[420px]:block border-l border-ice-border-subtle pl-3">

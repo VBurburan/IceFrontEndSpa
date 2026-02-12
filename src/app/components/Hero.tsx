@@ -22,6 +22,8 @@ export function Hero() {
         <img
           src="https://imgur.com/1PLU9xV.png"
           alt="ICE cryopreservation team performing field stabilization procedures"
+          width={1920}
+          height={1080}
           className="w-full h-[120%] object-cover object-[75%_center] lg:object-center"
         />
         {/* Overlay: dark from left for text legibility, letting the image breathe on right */}

@@ -54,8 +54,10 @@
     "vaul": "1.1.2"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.11.1",
     "@tailwindcss/vite": "4.1.12",
     "@vitejs/plugin-react": "4.7.0",
+    "playwright-core": "1.56.1",
     "tailwindcss": "4.1.12",
     "vite": "6.3.5"
   },
